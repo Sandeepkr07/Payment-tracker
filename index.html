@@ -18,7 +18,7 @@
     </form>
 
     <h2>All Payments</h2>
-    <iframe src="PASTE_YOUR_GOOGLE_SHEET_PUBLISH_LINK_HERE" width="100%" height="400"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/1Y7pP6qwTrvzNvr_4ysLXJT4frIRwb1EdKKfeXuEWoA0/edit?usp=drivesdk" width="100%" height="400"></iframe>
   </div>
 
   <script>
@@ -27,7 +27,7 @@
       const form = e.target;
       const data = new FormData(form);
 
-      fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+      fetch("https://payment-tracker-two.vercel.app/", {
         method: "POST",
         body: data
       })
