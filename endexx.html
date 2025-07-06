@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-container">
+    <div class="form-container">
+      <h1><i class="fas fa-money-check-alt"></i> Payment Form</h1>
+      <form id="paymentForm">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="number" name="amount" placeholder="Enter amount" required>
+        <input type="date" name="date" required>
+        <button type="submit">Submit Payment</button>
+      </form>
+    </div>
+
+    <div class="table-container">
+      <h2><i class="fas fa-list"></i> All Payments</h2>
+      <iframe src="https://docs.google.com/spreadsheets/d/1Y7pP6qwTrvzNvr_4ysLXJT4frIRwb1EdKKfeXuEWoA0/pubhtml?widget=true&amp;headers=false" width="100%" height="400"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("paymentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+        method: "POST",
+        body: data
+      })
+      .then(response => response.text())
+      .then(result => {
+        alert("Payment Submitted: " + result);
+        form.reset();
+      })
+      .catch(error => {
+        alert("Error submitting payment.");
+        console.error(error);
+      });
+    });
+  </script>
+</body>
+</html>
